@@ -1,4 +1,4 @@
-const config = require('../config/config')
+const config = require('config')
 
 const options = {
   clientRetryInterval: config.get('sse.clientRetryInterval'),
