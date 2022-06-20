@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 
 const SSE = require('../middlewares/sse-p2p-simple')
 const Controller = require('../controller/controller')
@@ -6,8 +7,8 @@ const Controller = require('../controller/controller')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  res.send('SSE server')
+  res.sendFile(path.join(`${__dirname}/templates/Main.html`))
 })
-router.get('/ping/:count', SSE, Controller.process)
+router.get('/prices/:count', SSE, Controller.process)
 
 module.exports = router

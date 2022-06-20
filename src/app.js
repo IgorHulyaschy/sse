@@ -7,6 +7,7 @@ const router = require('./router/router')
 
 const app = express()
 
+app.use(express.static('./src/router/templates'))
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())

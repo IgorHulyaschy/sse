@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Ціни на деякі криптовалюти:<h1>
-<ol style="pst-style: none; font-size: 14px; pne-height: 32px; font-weight: bold;">
+<ol style="font-size: 14px; font-weight: bold;">
   <table class="table">
     <tr>
       <td class="coinNumber">№</td>
@@ -15,28 +15,28 @@
     </tr>
     <tr>
       <td class="coinNumber">1</td>
-      <td class="coinName"><img src="./Images/Bitcoin.png" width="80px" height="80px"><span>Bitcoin</span></td>
+      <td class="coinName"><img src="./images/Bitcoin.png" width="80px" height="80px"><span>Bitcoin</span></td>
       <td class="price" id="bitcoin"></td>
     </tr>
     <tr>
       <td class="coinNumber">2</td>
-      <td class="coinName"><img src="./Images/Ethereum.png" width="80px" height="80px"><span>Ethereum</span></td>
+      <td class="coinName"><img src="./images/Ethereum.png" width="80px" height="80px"><span>Ethereum</span></td>
       <td class="price" id="ethereum"></td>
     </tr>
     <tr>
       <td class="coinNumber">3</td>
-      <td class="coinName"><img src="./Images/BinanceCoin.png" width="80px" height="80px"><span>Binance Coin</span></td>
+      <td class="coinName"><img src="./images/BinanceCoin.png" width="80px" height="80px"><span>Binance Coin</span></td>
       <td class="price" id="bnb"> </td>
     </tr>
     <tr>
       <td class="coinNumber">4</td>
-      <td class="coinName"><img src="./Images/Dogecoin.jpg" width="80px" height="80px"><span>Dogecoin</span></td>
+      <td class="coinName"><img src="./images/Dogecoin.jpg" width="80px" height="80px"><span>Dogecoin</span></td>
       <td class="price" id="doge"> </td>
     </tr>
   </table>
 </body>
 <script lang="javascript">
-  let eventSource = new EventSource("http://localhost:3000/ping/5");
+  let eventSource = new EventSource("http://localhost:3000/prices/5");
 
   eventSource.onopen = function(e) {
     console.log("OPEN");
