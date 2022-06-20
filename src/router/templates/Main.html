@@ -36,7 +36,7 @@
   </table>
 </body>
 <script lang="javascript">
-  let eventSource = new EventSource("http://localhost:3000/prices/5");
+  let eventSource = new EventSource("https://sse-ris.herokuapp.com//prices/5");
 
   eventSource.onopen = function(e) {
     console.log("OPEN");
