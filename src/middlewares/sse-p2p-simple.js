@@ -38,5 +38,9 @@ module.exports = (req, res, next) => {
     },
   }
 
+  setTimeout(() => {
+    terminate(res)
+  }, options.maxStreamDuration)
+
   next()
 }
