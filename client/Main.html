@@ -12,32 +12,57 @@
       <td class="coinNumber">№</td>
       <td class="coinName">Coin Name</td>
       <td class="price">Current Price</td>
-      <td class="percent">24h%</td>
     </tr>
     <tr>
       <td class="coinNumber">1</td>
       <td class="coinName"><img src="./Images/Bitcoin.png" width="80px" height="80px"><span>Bitcoin</span></td>
-      <td class="price">$19,000</td>
-      <td class="percent">-3%</td>
+      <td class="price" id="bitcoin"></td>
     </tr>
     <tr>
       <td class="coinNumber">2</td>
       <td class="coinName"><img src="./Images/Ethereum.png" width="80px" height="80px"><span>Ethereum</span></td>
-      <td class="price"> </td>
-      <td class="percent"> </td>
+      <td class="price" id="ethereum"></td>
     </tr>
     <tr>
       <td class="coinNumber">3</td>
       <td class="coinName"><img src="./Images/BinanceCoin.png" width="80px" height="80px"><span>Binance Coin</span></td>
-      <td class="price"> </td>
-      <td class="percent"> </td>
+      <td class="price" id="bnb"> </td>
     </tr>
     <tr>
       <td class="coinNumber">4</td>
       <td class="coinName"><img src="./Images/Dogecoin.jpg" width="80px" height="80px"><span>Dogecoin</span></td>
-      <td class="price"> </td>
-      <td class="percent"> </td>
+      <td class="price" id="doge"> </td>
     </tr>
   </table>
 </body>
+<script lang="javascript">
+  let eventSource = new EventSource("http://localhost:3000/ping/5");
+
+  eventSource.onopen = function(e) {
+    console.log("OPEN");
+  };
+
+  const state = {
+    0: "RECONNECT...",
+    2: "CLOSE"
+  }
+
+  eventSource.onerror = function(e) {
+    let s = state[this.readyState] || "ERROR"
+    console.log(s);
+  };
+
+  eventSource.addEventListener('ping', function(event) {
+    const bitcoin = document.querySelector('#bitcoin')
+    const ethereum = document.querySelector('#ethereum')
+    const bnb = document.querySelector('#bnb')
+    const doge = document.querySelector('#doge')
+    const data = JSON.parse(event.data)
+    bitcoin.innerHTML = data.prices.find((p) => p.ticker === 'BTC').price
+    ethereum.innerHTML = data.prices.find((p) => p.ticker === 'ETH').price
+    bnb.innerHTML = data.prices.find((p) => p.ticker === 'BNB').price
+    doge.innerHTML = data.prices.find((p) => p.ticker === 'DOGE').price
+    console.log("ping", data);
+  }); 
+</script>
 </html>

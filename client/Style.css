@@ -46,6 +46,3 @@ tr {
 span {
     padding-left: 20px;
 }
-tr, td, table {
-    border: 1px black solid;
-}
