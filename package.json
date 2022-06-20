@@ -7,7 +7,7 @@
     "test": "jest",
     "eslint:init": "eslint --init",
     "serve": "nodemon ./src/server",
-    "start": "node ./src/server"
+    "start": "npm i && node ./src/server"
   },
   "author": "",
   "license": "ISC",
