@@ -1,8 +1,8 @@
 const config = require('config')
 
 const options = {
-  clientRetryInterval: config.get('sse.clientRetryInterval'),
-  maxStreamDuration: config.get('sse.maxStreamDuration'),
+  clientRetryInterval: config.get('sse.clientRetryInterval') || 1000,
+  maxStreamDuration: config.get('sse.maxStreamDuration') || 50000,
 }
 
 const sendMessage = (res, message) => {
@@ -42,5 +42,5 @@ module.exports = (req, res, next) => {
     terminate(res)
   }, options.maxStreamDuration)
 
-  next()
+  return next()
 }

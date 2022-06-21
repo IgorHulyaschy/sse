@@ -1,5 +1,9 @@
 const config = require('config')
-const app = require('./app.js')
+const { start, app } = require('./app.js')
 
 const port = config.get('server.port')
-app.listen(port, console.log(`server starts at port ${port}`))
+async function listen() {
+  const server = await start(app)
+  return server.listen(port, console.log(`server starts at port ${port}`))
+}
+listen()

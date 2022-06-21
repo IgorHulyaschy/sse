@@ -41,6 +41,7 @@
         "operator-linebreak":"off",
         "no-restricted-syntax": "off",
         "no-await-in-loop":"off",
-        "dot-notation":"off"
+        "dot-notation":"off",
+        "no-undef":"off"
     }
 }

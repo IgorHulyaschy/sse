@@ -18,7 +18,7 @@ class Controller {
       } else {
         res.sse.close()
       }
-    }, 5000)
+    }, 1000)
   }
 }
 

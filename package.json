@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/server.js",
   "scripts": {
-    "test": "jest",
+    "test": "cross-env NODE_ENV=production jest",
     "eslint:init": "eslint --init",
     "serve": "nodemon ./src/server",
     "start": "npm i && node ./src/server"
@@ -13,22 +13,42 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "config": "^3.3.7",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "eventsource": "^2.0.2",
     "express": "^4.17.1",
+    "jest": "^27.1.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.6",
-    "uuid": "^8.3.2",
-    "config": "^3.3.7",
-    "dotenv": "^16.0.1"
+    "supertest": "^5.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2"
+  },
+  "jest": {
+    "verbose": true,
+    "modulePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "roots": [
+      "<rootDir>"
+    ],
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ]
   }
 }
