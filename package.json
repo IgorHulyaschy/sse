@@ -7,7 +7,8 @@
     "test": "cross-env NODE_ENV=production jest",
     "eslint:init": "eslint --init",
     "serve": "nodemon ./src/server",
-    "start": "npm i && node ./src/server"
+    "start": "npm i && node ./src/server",
+    "docs:gh-pages": "gh-pages.sh"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "eventsource": "^2.0.2",
     "express": "^4.17.1",
     "jest": "^27.1.1",
+    "jsdoc-to-markdown": "^7.1.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.6",
